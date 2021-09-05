@@ -28,34 +28,70 @@ void check(char *argv[], int SAVE_DATA, int a, int argc){
         strcat(command, " >/dev/null 2>&1");
         int response = system(command);
 
-        if (response == 0){
-            printf("[INFO] ---> %s is active\n", argv[i]);
-            if (SAVE_DATA == 1){
-                FILE *fp;
-                fp = fopen(DATA_FILE, "a+");
+        switch(response){
+            // alive
+            case 0:
+                printf("[INFO] ---> %s: is alive\n", argv[i]);
+                if (SAVE_DATA == 1){
+                    FILE *fp;
+                    fp = fopen(DATA_FILE, "a+");
+                    
+                    time_t t = time(NULL);
+                    struct tm *tm = localtime(&t);
+
+                    fprintf(fp, "%s ---> '%s' was alive\n\n", asctime(tm), argv[i]);
+                    fclose(fp);
+                }
+                break;
+
+            // unreachable
+            case 1:
+            case 256:
+                printf("[INFO] ---> %s: is unreachable\n", argv[i]);
+                if (SAVE_DATA == 1){
+                    FILE *fp;
+                    fp = fopen(DATA_FILE, "a+");
+                    
+                    time_t t = time(NULL);
+                    struct tm *tm = localtime(&t);
+
+                    fprintf(fp, "%s ---> '%s' was unreachable\n\n", asctime(tm), argv[i]);
+                    fclose(fp);
+                }
+                break;
+
+            // unknown host
+            case 2:
+            case 68:
+                printf("[INFO] ---> %s: unknown host\n", argv[i]);
+                if (SAVE_DATA == 1){
+                    FILE *fp;
+                    fp = fopen(DATA_FILE, "a+");
+                    
+                    time_t t = time(NULL);
+                    struct tm *tm = localtime(&t);
+
+                    fprintf(fp, "%s ---> '%s' unknown host\n\n", asctime(tm), argv[i]);
+                    fclose(fp);
+                }
+                break;
+
+            // unknown code
+            default:    
+                printf("[INFO] ---> %s: is probably inactive\n", argv[i]);
+                if (SAVE_DATA == 1){
+                    FILE *fp;
+                    fp = fopen(DATA_FILE, "a+");
+
+                    time_t t = time(NULL);
+                    struct tm *tm = localtime(&t);
                 
-                time_t t = time(NULL);
-                struct tm *tm = localtime(&t);
-
-                fprintf(fp, "%s ---> '%s' was active.\n\n", asctime(tm), argv[i]);
-                fclose(fp);
+                    fprintf(fp, "%s ---> '%s' was probably inactive\n\n", asctime(tm), argv[i]);
+                    fclose(fp);
             }
+                break;
 
-        } else {
-            printf("[INFO] ---> %s is inactive\n", argv[i]);
-            if (SAVE_DATA == 1){
-                //char data[100];
-                FILE *fp;
-                fp = fopen(DATA_FILE, "a+");
-
-                time_t t = time(NULL);
-                struct tm *tm = localtime(&t);
-            
-                fprintf(fp, "%s ---> '%s' was inactive.\n\n", asctime(tm), argv[i]);
-                fclose(fp);
         }
-
-    }
     }
     if (SAVE_DATA == 1){
         printf("\n[INFO] This have been saved to '%s'.\n", DATA_FILE);
