@@ -13,5 +13,5 @@ Options:
 
 # Example/Screenshot
 <br>
-<img width="65%" src="imgs/example.png"/>
+<img width="70%" src="imgs/example.png"/>
 </p>
