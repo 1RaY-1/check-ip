@@ -31,7 +31,7 @@ void check(char *argv[], int SAVE_DATA, int a, int argc){
         switch(response){
             // alive
             case 0:
-                printf("[INFO] ---> %s: is alive\n", argv[i]);
+                printf("[INFO] ---> %s is alive\n", argv[i]);
                 if (SAVE_DATA == 1){
                     FILE *fp;
                     fp = fopen(DATA_FILE, "a+");
@@ -47,7 +47,7 @@ void check(char *argv[], int SAVE_DATA, int a, int argc){
             // unreachable
             case 1:
             case 256:
-                printf("[INFO] ---> %s: is unreachable\n", argv[i]);
+                printf("[INFO] ---> %s is unreachable\n", argv[i]);
                 if (SAVE_DATA == 1){
                     FILE *fp;
                     fp = fopen(DATA_FILE, "a+");
@@ -63,7 +63,7 @@ void check(char *argv[], int SAVE_DATA, int a, int argc){
             // unknown host
             case 2:
             case 68:
-                printf("[INFO] ---> %s: unknown host\n", argv[i]);
+                printf("[INFO] ---> %s unknown host\n", argv[i]);
                 if (SAVE_DATA == 1){
                     FILE *fp;
                     fp = fopen(DATA_FILE, "a+");
@@ -78,7 +78,7 @@ void check(char *argv[], int SAVE_DATA, int a, int argc){
 
             // unknown code
             default:    
-                printf("[INFO] ---> %s: is probably inactive\n", argv[i]);
+                printf("[INFO] ---> %s is probably inactive\n", argv[i]);
                 if (SAVE_DATA == 1){
                     FILE *fp;
                     fp = fopen(DATA_FILE, "a+");
