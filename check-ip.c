@@ -106,7 +106,7 @@ int main(int argc, char *argv[]){
     }
     else if (strcmp("-h", argv[1]) == 0 OR strcmp("--help", argv[1]) == 0){
         USAGE
-        return 1;
+        return 0;
     }
     else if (strcmp("-s", argv[1]) == 0 AND argc == 2){
         USAGE
