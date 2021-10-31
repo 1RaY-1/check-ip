@@ -1,5 +1,5 @@
 # About
-Simple C program that checks if ip adresses or websites are active or not using shell "**ping -c 2**" command.
+Simple C program that checks if ip adresses or websites are active or not using shell "**ping**" command.
 
 # Installation
 * ```git clone https://github.com/1RaY-1/check-ip```
