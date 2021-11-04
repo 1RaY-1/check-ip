@@ -3,7 +3,7 @@
 # exit on any error
 set -e
 
-if ! [ -x "$(command -v gcc)" ]; then echo "Install gcc to be able to compile the program !!"; exit 1
+if ! [ `command -v gcc` ]; then echo "Install gcc to be able to compile the program !!"; exit 1
 else gcc check-ip.c -o check-ip
 fi
 
