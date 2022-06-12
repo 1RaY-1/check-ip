@@ -21,3 +21,4 @@ else echo "Sorry, I don't know what to do."; exit 1
 fi
 
 echo "Done!"
+echo "Type 'check-ip -h' for more."
