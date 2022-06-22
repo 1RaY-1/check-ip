@@ -33,8 +33,11 @@ Open PowerShell with Admin permissions in this folder and type:
 - `.\install-windows.ps1`
 
 **If you are facing problems with install script, it's not a big deal, just do this:**
-1: Open CMD in this dir and type 'gcc check-ip.c -o check-ip.exe'
+
+1: Open CMD in this dir and type `gcc check-ip.c -o check-ip.exe`
+
 2: Move 'check-ip.exe' to 'C:\Windows\System32' (Manually, using GUI)
+
 3: Grant permission to move the program there.
 
 ### On Linux
