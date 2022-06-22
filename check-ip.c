@@ -11,24 +11,33 @@
 
 #define USAGE printf("Usage: %s [OPTION] IP_ADRESSES_TO_CHECK\n", argv[0]); \
     printf("Options:\n-s   Save data to data.txt\n-h, --help   Get this help message\n"); \
-    printf("Example: %s -s 8.8.8.8 github.com\n", argv[0]);
+    printf("\nExample: %s -s 8.8.8.8 github.com\n", argv[0]);
 
 void check(char *argv[], int SAVE_DATA, int a, int argc){
     
-    // start
+    // Start
     printf("[INFO] Checking: ");
     for (int i = a; i < argc; i++){
         printf("%s ", argv[i]);
     }
     printf("\n\n");
     for (int i = a; i < argc; i++){
-        char command[100] = "ping -c 2 "; // <-- shell command to check
+#ifdef _WIN32
+        char command[100] = "ping ";
         strcat(command, argv[i]);
-        strcat(command, " >/dev/null 2>&1");
+        strcat(command, " >");  // To not receive unwanted text from ping command
+        strcat(command, ".temp__null__file");  // To not receive unwanted text from ping command
+        int response = system(command);
+        system("del .temp__null__file"); // Remove temp file which is beeing used to hide output from ping command
+#else
+        char command[100] = "ping -c 2 ";
+        strcat(command, argv[i]);
+        strcat(command, " >/dev/null 2>&1");  // To not receive unwanted text from ping command
         int response = system(command);
 
+#endif
         switch(response){
-            // alive
+            // Alive
             case 0:
                 printf("[INFO] ---> %s is alive\n", argv[i]);
                 if (SAVE_DATA == 1){
@@ -43,7 +52,7 @@ void check(char *argv[], int SAVE_DATA, int a, int argc){
                 }
                 break;
 
-            // unreachable
+            // Unreachable
             case 1:
             case 256:
                 printf("[INFO] ---> %s is unreachable\n", argv[i]);
@@ -59,7 +68,7 @@ void check(char *argv[], int SAVE_DATA, int a, int argc){
                 }
                 break;
 
-            // unknown host
+            // Unknown host
             case 2:
             case 68:
                 printf("[INFO] ---> %s unknown host\n", argv[i]);
@@ -75,7 +84,7 @@ void check(char *argv[], int SAVE_DATA, int a, int argc){
                 }
                 break;
 
-            // unknown code
+            // Unknown code
             default:    
                 printf("[INFO] ---> %s is probably inactive\n", argv[i]);
                 if (SAVE_DATA == 1){
@@ -99,7 +108,7 @@ void check(char *argv[], int SAVE_DATA, int a, int argc){
 
 int main(int argc, char *argv[]){
 
-    // check command line arguments
+    // Check command line arguments
     if (argc == 1){
         USAGE
         return 1;
