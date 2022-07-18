@@ -14,14 +14,14 @@ Simple program to check if ip adresses are active or not using shell/cmd **ping*
 - *Android* (via Termux App)
 
 # General Requierements
-- *Internet connection*
+- *Stable Internet connection*
 
 # Installation
 
 ### On Windows
-First of all, make sure you have:
+Make sure you have these installed:
 - Modern PowerShell version
-- MINGW
+- MinGW
 
 Then:
 
@@ -29,7 +29,7 @@ Then:
 
 Open PowerShell with Admin permissions in this folder and type:
 
-- `Set-ExecutionPolicy RemoteSigned` (this is in case to execute powershell script without any problems)
+- `Set-ExecutionPolicy RemoteSigned` (this is to execute powershell script without any problems)
 - `.\install-windows.ps1`
 
 **If you are facing problems with install script, it's not a big deal, just do this:**
@@ -41,7 +41,7 @@ Open PowerShell with Admin permissions in this folder and type:
 3: Grant permission to move the program there.
 
 ### On Linux
-First of all, make sure you have:
+Make sure you have these installed:
 - GCC
 
 Then open terminal and type:
@@ -71,14 +71,14 @@ Open CMD with admin persmissions and type:
 Open terminal and type:
 * `sudo rm /usr/bin/check-ip`
 
-if doesn't work, type:
+if the above command doesn't work, type:
 
 * `sudo rm /bin/check-ip`
 
 **And enter sudo password**
 
 ## More 
-If you can help me improving this program, I would be very happy.
+If you can help me improve this program, I would be very happy.
 
 ## License
 Check Ip is licensed under [MIT License](https://github.com/1RaY-1/check-ip/blob/main/LICENSE).
