@@ -28,12 +28,13 @@ void check(char *argv[], int SAVE_DATA, int a, int argc){
         strcat(command, " >");  // To not receive unwanted text from ping command
         strcat(command, ".temp__null__file");  // To not receive unwanted text from ping command
         int response = system(command);
-        system("del .temp__null__file"); // Remove temp file which is beeing used to hide output from ping command
+        remove(".temp__null__file"); // Remove temp file which is beeing used to hide output from ping command
 #else
+#include <sys/wait.h>
         char command[100] = "ping -c 2 ";
         strcat(command, argv[i]);
         strcat(command, " >/dev/null 2>&1");  // To not receive unwanted text from ping command
-        int response = system(command);
+        int response = WEXITSTATUS(system(command));
 
 #endif
         switch(response){
