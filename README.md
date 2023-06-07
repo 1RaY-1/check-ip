@@ -22,16 +22,21 @@ Simple program to check if ip adresses are active or not using shell/cmd **ping*
 
 Open PowerShell with Admin privileges and run this command:
 
-- `Set-ExecutionPolicy RemoteSigned; Invoke-WebRequest https://raw.githubusercontent.com/1ray-1/check-ip/main/install-windows.ps1 -OutFile "$PWD\install-windows.ps1";  .\install-winows.ps1
-`
+```
+Set-ExecutionPolicy RemoteSigned; Invoke-WebRequest https://raw.githubusercontent.com/1ray-1/check-ip/main/install-windows.ps1 -OutFile "$PWD\install-windows.ps1";  .\install-winows.ps1
+```
 
-### On Linux/Termux
+### On Linux
+Make sure you have these installed:
+- GCC
 
-Open terminal and type:
+Then open terminal and type:
 
 * ```git clone https://github.com/1RaY-1/check-ip```
 * ```cd check-ip/```
-* ```sh install.sh```
+* ```sh install-linux.sh```
+
+**You'll have to enter sudo password**
 
 # How to use (from CMD/Terminal)
 ```
