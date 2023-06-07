@@ -1,24 +1,28 @@
 #Requires -RunAsAdministrator
-
+$ErrorActionPreference = "Stop"
 <#
 Check Ip installer for Windows.
 For more info about this program, see: https://github.com/1RaY-1/check-ip
+
+If receiving error "execution of scripts is disabled on this system", open powershell as admin and type next command:
+Set-ExecutionPolicy RemoteSigned
 #>
 
-$check_command = "gcc"
-$needed_program = "check-ip.c"
-$needed_compiled_program = "check-ip.exe"
+$program = "check-ip.exe"
 $needed_dir = "C:\Windows\System32\"
-$needed =$needed_dir+$needed_compiled_program
+$needed =$needed_dir+$program
 
-if ( -Not (Get-Command $check_command -errorAction SilentlyContinue))
-{
-    write-host "You don't have "$check_command" Installed."
-    write-host "Please install it and re-run me."
-    exit 1
+# Check if system is AMD64 or I386
+if ((Get-WmiObject win32_operatingsystem | select osarchitecture).osarchitecture -eq "64-bit"){
+    write "Downloading executable for: 64-bit OS"
+    Invoke-WebRequest -URI "https://github.com/1RaY-1/check-ip/releases/latest/download/check-ip-64bit.exe" -OutFile "$PWD\$program"
+}
+else{
+    write "Downloading executable for: 32-bit OS"
+    Invoke-WebRequest -URI "https://github.com/1RaY-1/check-ip/releases/latest/download/check-ip-32bit.exe" -OutFile "$PWD\$program"
 }
 
-# in case
+# Move it to C:\Windows\System32
 
 if ( Test-Path -Path $needed -PathType Leaf) {
     write-host "File '$needed' already exist, will replace it. Press any key to continue."
@@ -26,13 +30,10 @@ if ( Test-Path -Path $needed -PathType Leaf) {
     Remove-Item $needed
 }
 
-gcc $needed_program -o $needed_compiled_program
-
-Move-Item -Path $needed_compiled_program -Destination $needed_dir
+Move-Item -Path $PWD\$program -Destination $needed_dir
 
 write-host "Done!"
 
-$needed_compiled_program = $needed_compiled_program.Substring(0, $needed_compiled_program.lastIndexOf('.'))
-write-host "Type: '$needed_compiled_program -h' for more."
-write-host "Or read README.md for more."
-
+$program = $program.Substring(0, $program.lastIndexOf('.'))
+write-host "Type: '$program -h' to get started."
+write-host "Or read README.md."
