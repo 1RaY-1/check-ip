@@ -26,6 +26,8 @@ Open PowerShell with Admin privileges and run this command:
 Set-ExecutionPolicy RemoteSigned; Invoke-WebRequest https://raw.githubusercontent.com/1ray-1/check-ip/main/install-windows.ps1 -OutFile "$PWD\install-windows.ps1";  .\install-windows.ps1
 ```
 
+***And confirm with a "Y"***
+
 ### On Linux
 Make sure you have these installed:
 - GCC
