@@ -23,7 +23,7 @@ Simple program to check if ip adresses are active or not using shell/cmd **ping*
 Open PowerShell with Admin privileges and run this command:
 
 ```
-Set-ExecutionPolicy RemoteSigned; Invoke-WebRequest https://raw.githubusercontent.com/1ray-1/check-ip/main/install-windows.ps1 -OutFile "$PWD\install-windows.ps1";  .\install-winows.ps1
+Set-ExecutionPolicy RemoteSigned; Invoke-WebRequest https://raw.githubusercontent.com/1ray-1/check-ip/main/install-windows.ps1 -OutFile "$PWD\install-windows.ps1";  .\install-windows.ps1
 ```
 
 ### On Linux
