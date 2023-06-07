@@ -1,22 +1,31 @@
 # About
 Simple program to check if ip adresses are active or not using **ping** command.
 
+## How it works
 
-# Screenshots
+What it does is just **ping** a website (that you choose) and depends of which status code returns **ping** command, it's the status of the website/ip address.
+
+Possible statuses are:
+- 0 => Alive
+- 1 or 256 => Unreachable
+- 2 or 68 => Unknown host
+- [Any other code] => Uknown
+
+## Screenshots
 <br>
 <img width="70%" src="imgs/example1.png"/>
 <img width="70%" src="imgs/example2.png"/>
 </p>
 
-# Supported Operating System
+## Supported Operating System
 - *Windows*
 - *Linux*
 - *Android* (via Termux App)
 
-# General Requierements
+## General Requierements
 - *Stable Internet connection*
 
-# Installation
+## Installation
 
 ### On Windows
 
@@ -29,25 +38,24 @@ Set-ExecutionPolicy RemoteSigned; Invoke-WebRequest https://raw.githubuserconten
 ***And confirm with a "Y"***
 
 ### On Linux/Termux
-Make sure you have these installed:
-- GCC
 
-Then open terminal and type:
+Open terminal and run this command:
 
-* ```git clone https://github.com/1RaY-1/check-ip```
-* ```cd check-ip/```
-* ```sh install-linux.sh```
+```
+wget https://raw.githubusercontent.com/1ray-1/check-ip/main/install-linux.sh; chmod +x install-linux.sh; clear; bash install-linux.sh
+```
 
-**You'll have to enter sudo password**
+**You'll have to enter sudo password on Linux**
+
+***On both of this cases the executable will be installed in a directory which is in PATH, so you can run it by just typing check-ip in terminal/cmd***
 
 ### From releases
-You can also download directly the executable file for your OS from [releases](https://github.com/1RaY-1/check-ip/releases/latest)
+You can download directly the executable file for your OS [here](https://github.com/1RaY-1/check-ip/releases/latest)
 
-For the moment there executable files only for this OS's: linux-amd64, windows-64bit and windows-32bit
+### From source
+You can download this repo and build [check-ip.c](https://github.com/1RaY-1/check-ip/blob/main/check-ip.c) manually (using C compiler).
 
-If you have another system  architecture, you have to build [check-ip.c](https://github.com/1RaY-1/check-ip/blob/main/check-ip.c) manually (using GCC).
-
-# How to use (from CMD/Terminal)
+## How to use (from CMD/Terminal)
 ```
 Usage: check-ip [OPTION] IP_ADRESSES_TO_CHECK
 
@@ -56,7 +64,7 @@ Options:
 -h, --help    Get help text
 ```
 
-# How to remove
+## How to remove
 
 ### On windows
 Open CMD with admin privileges and type:
