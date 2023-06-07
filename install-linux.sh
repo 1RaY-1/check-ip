@@ -1,11 +1,49 @@
-#!/bin/sh
+#!/bin/bash
 
 # exit on any error
 set -e
 
-if ! [ `command -v gcc` ]; then echo "Please install 'gcc' and then run me again."; exit 1
-else gcc check-ip.c -o check-ip
+if ! [ `command -v wget` ]; then
+    echo "Need 'wget' oackage to download files from github!"
+    echo "Install it with your package manager"
+    exit 1
 fi
+
+echo -ne "Check-Ip installer for Linux/Termux\n"
+sleep 2s
+
+case $(uname -m) in
+    x86_64) ARCH="amd64" 
+    echo "Downloading executable for: ${ARCH}"; sleep 1s
+    wget -O check-ip https://github.com/1ray-1/check-ip/releases/latest/download/check-ip-${ARCH}
+    ;;
+    i386 | i686) ARCH="i386" 
+    echo "Downloading executable for: ${ARCH}"; sleep 1s
+    wget -O check-ip https://github.com/1ray-1/check-ip/releases/latest/download/check-ip-${ARCH}
+    ;;
+    arm64) ARCH="arm64" 
+    echo "Downloading executable for: ${ARCH}"; sleep 1s
+    wget -O check-ip https://github.com/1ray-1/check-ip/releases/latest/download/check-ip-${ARCH}
+    ;;
+    aarch64) ARCH="aarch64"
+    echo "Downloading executable for: ${ARCH}"; sleep 1s
+    wget -O check-ip https://github.com/1ray-1/check-ip/releases/latest/download/check-ip-${ARCH}
+    ;;
+    *)
+    echo "Will compile it from source"; sleep 1s
+    wget https://raw.githubusercontent.com/1ray-1/check-ip/main/check-ip.c
+    {
+    gcc check-ip.c -o check-ip  &&
+    echo "Compiled successfully" &&
+    sleep 2s
+    } || {
+    echo "Looks like C compiler is not installed or something went wrong!"
+    exit 
+    }
+    ;;
+esac
+
+chmod +x check-ip
 
 # for android
 if [ -d /data/data/com.termux/files/usr/bin/ ]; then
@@ -40,6 +78,5 @@ elif [ -d /bin/ ]; then
 else echo "Sorry, I don't know what to do."; exit 1
 fi
 
-echo "Done!"
-echo "Type 'check-ip -h' to get started."
+echo -ne "Done!\nType 'check-ip -h' to get started."
 echo "Or read README.md for more."
