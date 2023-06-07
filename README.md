@@ -25,17 +25,13 @@ Open PowerShell with Admin privileges and run this command:
 - `Set-ExecutionPolicy RemoteSigned; Invoke-WebRequest https://raw.githubusercontent.com/1ray-1/check-ip/main/install-windows.ps1 -OutFile "$PWD\install-windows.ps1";  .\install-winows.ps1
 `
 
-### On Linux
-Make sure you have these installed:
-- GCC
+### On Linux/Termux
 
-Then open terminal and type:
+Open terminal and type:
 
 * ```git clone https://github.com/1RaY-1/check-ip```
 * ```cd check-ip/```
-* ```sh install-linux.sh```
-
-**You'll have to grant sudo permission**
+* ```sh install.sh```
 
 # How to use (from CMD/Terminal)
 ```
@@ -66,9 +62,5 @@ if the above command doesn't work, type:
 Run this command:
 * `rm /data/data/com.termux/files/usr/bin/check-ip`
 
-## More 
-If you can help me improve this program, I would be very happy.
-
 ## License
 Check Ip is licensed under [MIT License](https://github.com/1RaY-1/check-ip/blob/main/LICENSE).
-
