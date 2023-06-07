@@ -1,5 +1,5 @@
 # About
-Simple program to check if ip adresses are active or not using shell/cmd **ping** command.
+Simple program to check if ip adresses are active or not using **ping** command.
 
 
 # Screenshots
@@ -28,7 +28,7 @@ Set-ExecutionPolicy RemoteSigned; Invoke-WebRequest https://raw.githubuserconten
 
 ***And confirm with a "Y"***
 
-### On Linux
+### On Linux/Termux
 Make sure you have these installed:
 - GCC
 
@@ -39,6 +39,13 @@ Then open terminal and type:
 * ```sh install-linux.sh```
 
 **You'll have to enter sudo password**
+
+### From releases
+You can also download directly the executable file for your OS from [releases](https://github.com/1RaY-1/check-ip/releases/latest)
+
+For the moment there executable files only for this OS's: linux-amd64, windows-64bit and windows-32bit
+
+If you have another system  architecture, you have to build [check-ip.c](https://github.com/1RaY-1/check-ip/blob/main/check-ip.c) manually (using GCC).
 
 # How to use (from CMD/Terminal)
 ```
