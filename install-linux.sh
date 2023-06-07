@@ -8,17 +8,19 @@ else gcc check-ip.c -o check-ip
 fi
 
 # for android
-if [ -d /data/data/com.termux/files/usr/bin/ ]; then 
+if [ -d /data/data/com.termux/files/usr/bin/ ]; then
+    echo "Installing check-ip in /data/data/com.termux/files/usr/bin/";sleep 1s
     # in case
     if [ -f /data/data/com.termux/files/usr/bin/check-ip ]; then
         echo "Hey '/data/data/com.termux/files/usr/bin/check-ip' already exists, will replace it. Press ENTER to continue"
         read tmp
-        sudo rm /data/data/com.termux/files/usr/bin/check-ip
+        rm /data/data/com.termux/files/usr/bin/check-ip
     fi
     mv check-ip /data/data/com.termux/files/usr/bin/
 
 # for linux
-elif [ -d /usr/bin/ ]; then 
+elif [ -d /usr/bin/ ]; then
+    echo "Installing check-ip in /usr/bin/";sleep 1s
     if [ -f /usr/bin/check-ip ]; then
         echo "Hey '/usr/bin/check-ip' already exists, will replace it. Press ENTER to continue"
         read tmp
@@ -27,6 +29,7 @@ elif [ -d /usr/bin/ ]; then
     sudo mv check-ip /bin/
     
 elif [ -d /bin/ ]; then
+    echo "Installing check-ip in /bin/";sleep 1s
     if [ -f /bin/check-ip ]; then
         echo "Hey '/bin/check-ip' already exists, will replace it. Press ENTER to continue"
         read tmp
@@ -38,5 +41,5 @@ else echo "Sorry, I don't know what to do."; exit 1
 fi
 
 echo "Done!"
-echo "Type 'check-ip -h' for more."
+echo "Type 'check-ip -h' to get started."
 echo "Or read README.md for more."
