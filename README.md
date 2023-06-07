@@ -45,12 +45,12 @@ Open terminal and run this command:
 wget https://raw.githubusercontent.com/1ray-1/check-ip/main/install-linux.sh; chmod +x install-linux.sh; clear; bash install-linux.sh
 ```
 
-**You'll have to enter sudo password on Linux**
+You'll have to enter sudo password on Linux
 
-***On both of this cases the executable will be installed in a directory which is in PATH, so you can run it by just typing check-ip in terminal/cmd***
+***On both cases (linux and windows) the needed executable (for your system architecture) will be installed in a directory which is in PATH, so you can run it by just typing check-ip in terminal/cmd***
 
 ### From releases
-You can download directly the executable file for your OS [here](https://github.com/1RaY-1/check-ip/releases/latest)
+You can just download the executable file for your OS [here](https://github.com/1RaY-1/check-ip/releases/latest) and execute it.
 
 ### From source
 You can download this repo and build [check-ip.c](https://github.com/1RaY-1/check-ip/blob/main/check-ip.c) manually (using C compiler).
