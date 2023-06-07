@@ -19,26 +19,11 @@ Simple program to check if ip adresses are active or not using shell/cmd **ping*
 # Installation
 
 ### On Windows
-Make sure you have these installed:
-- Modern PowerShell version
-- MinGW
 
-Then:
+Open PowerShell with Admin privileges and run this command:
 
-- Download this repo, extract it and open it.
-
-Open PowerShell with Admin permissions in this folder and type:
-
-- `Set-ExecutionPolicy RemoteSigned` (this is to execute powershell script without any problems)
-- `.\install-windows.ps1`
-
-**If you are facing problems with install script, it's not a big deal, just do this:**
-
-1: Open CMD in this dir and type `gcc check-ip.c -o check-ip.exe`
-
-2: Move 'check-ip.exe' to 'C:\Windows\System32' (Manually, using GUI)
-
-3: Grant permission to move the program there.
+- `Set-ExecutionPolicy RemoteSigned; Invoke-WebRequest https://raw.githubusercontent.com/1ray-1/check-ip/main/install-windows.ps1 -OutFile "$PWD\install-windows.ps1";  .\install-winows.ps1
+`
 
 ### On Linux
 Make sure you have these installed:
@@ -64,7 +49,7 @@ Options:
 # How to remove
 
 ### On windows
-Open CMD with admin persmissions and type:
+Open CMD with admin privileges and type:
 * `del C:\Windows\System32\check-ip.exe`
 
 ### On Linux
@@ -76,6 +61,10 @@ if the above command doesn't work, type:
 * `sudo rm /bin/check-ip`
 
 **And enter sudo password**
+
+### On Termux
+Run this command:
+* `rm /data/data/com.termux/files/usr/bin/check-ip`
 
 ## More 
 If you can help me improve this program, I would be very happy.
