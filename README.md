@@ -3,7 +3,7 @@ Simple program to check if ip adresses are active or not using **ping** command.
 
 ## How it works
 
-What it does is just **ping** a website (that you choose) and depends of which status code returns **ping** command, it's the status of the website/ip address.
+What it does is just **ping** a website (that you choose) and depending on which status code returns **ping** command, it's the status of the website/ip address.
 
 Possible statuses are:
 - 0 => Alive
