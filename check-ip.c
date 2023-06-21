@@ -25,15 +25,15 @@ void check(char *argv[], int SAVE_DATA, int a, int argc){
 #ifdef _WIN32
         char command[100] = "ping ";
         strcat(command, argv[i]);
-        strcat(command, " >");  // To not receive unwanted text from ping command
-        strcat(command, ".temp__null__file");  // To not receive unwanted text from ping command
+        strcat(command, " >");
+        strcat(command, ".temp__null__file"); 
         int response = system(command);
-        remove(".temp__null__file"); // Remove temp file which is beeing used to hide output from ping command
+        remove(".temp__null__file");
 #else
 #include <sys/wait.h>
         char command[100] = "ping -c 2 ";
         strcat(command, argv[i]);
-        strcat(command, " >/dev/null 2>&1");  // To not receive unwanted text from ping command
+        strcat(command, " >/dev/null 2>&1");
         int response = WEXITSTATUS(system(command));
 
 #endif
