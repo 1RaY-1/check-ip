@@ -4,7 +4,7 @@
 set -e
 
 if ! [ `command -v wget` ]; then
-    echo "Need 'wget' oackage to download files from github!"
+    echo "Need 'wget' package to download files from github!"
     echo "Install it with your package manager"
     exit 1
 fi
