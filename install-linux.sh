@@ -5,7 +5,6 @@ set -e
 
 if ! [ `command -v wget` ]; then
     echo "Need 'wget' package to download files from github!"
-    echo "Install it with your package manager"
     exit 1
 fi
 
@@ -32,14 +31,17 @@ case $(uname -m) in
     *)
     echo "Will compile it from source"; sleep 1s
     wget https://raw.githubusercontent.com/1ray-1/check-ip/main/check-ip.c
-    {
-    gcc check-ip.c -o check-ip  &&
-    echo "Compiled successfully" &&
+    if [ `command -v gcc` ]; then
+        gcc check-ip.c -o check-ip || echo "Something went wrong!"
+    elif [ `command -v clang` ]; then
+        clang check-ip.c -o check-ip || echo "Something went wrong!"
+    else
+        echo "Looks like C compiler is not installed or something went wrong!"
+        exit 1
+    fi
+
+    echo "Compiled successfully"
     sleep 2s
-    } || {
-    echo "Looks like C compiler is not installed or something went wrong!"
-    exit 
-    }
     ;;
 esac
 
@@ -78,5 +80,11 @@ elif [ -d /bin/ ]; then
 else echo "Sorry, I don't know what to do."; exit 1
 fi
 
+if ! [ `command -v check-ip` ]; then
+    echo "Sorry, looks like 'check-ip' isn't installed!"
+    exit 1
+fi
+
 echo -ne "Done!\nType 'check-ip -h' to get started."
-echo "Or read README.md for more."
+echo "Or read README.md for more info."
+exit 0
