@@ -1,5 +1,6 @@
 # About
 Simple program to check if ip adresses are active or not using **ping** command.
+NOTE One Thing: I'm not a C programmer, this code is simple and could be done better, but it works.
 
 ## How it works
 
