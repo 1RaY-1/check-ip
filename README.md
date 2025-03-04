@@ -24,7 +24,7 @@ Possible statuses are:
 - *Android* (via Termux App)
 
 ## General Requierements
-- *Stable Internet connection*
+- *Internet connection*
 
 ## Installation
 
