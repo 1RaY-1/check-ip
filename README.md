@@ -1,16 +1,16 @@
 # About
-Simple program to check if ip adresses are active or not using **ping** command.
-NOTE One Thing: I'm not a C programmer, this code is simple and could be done better, but it works.
+Simple program to check if **IP adresses** are active or not using **ping** command.
+NOTE One Thing: I'm not a C programmer. This code is simple, could be done better, but it works.
 
 ## How it works
 
-What it does is just **ping** a website (that you choose) and depending on which status code returns **ping** command, it's the status of the website/ip address.
+It simply **pings** a website (of your chouce) and depending the status code returned by the **ping** command, it's the status of the website/ip address.
 
 Possible statuses are:
 - 0 => Alive
 - 1 or 256 => Unreachable
 - 2 or 68 => Unknown host
-- [Any other code] => Uknown
+- [Any other code] => Unknown
 
 ## Screenshots
 <br>
@@ -23,10 +23,12 @@ Possible statuses are:
 - *Linux*
 - *Android* (via Termux App)
 
-## General Requierements
+## General Requirements
 - *Internet connection*
 
 ## Installation
+
+*follow the instructions below to install this program on your OS*
 
 ### On Windows
 
@@ -48,7 +50,7 @@ wget https://raw.githubusercontent.com/1ray-1/check-ip/main/install-linux.sh; ch
 
 You'll have to enter sudo password on Linux
 
-***On both cases (linux and windows) the needed executable (for your system architecture) will be installed in a directory which is in PATH, so you can run it by just typing check-ip in terminal/cmd***
+***On both cases (Linux and Windows) the needed executable (for your system architecture) will be installed in a directory which is in PATH, so you can run it by just typing check-ip in terminal/cmd***
 
 ### From releases
 You can just download the executable file for your OS [here](https://github.com/1RaY-1/check-ip/releases/latest) and execute it.
@@ -67,7 +69,7 @@ Options:
 
 ## How to remove
 
-### On windows
+### On Windows
 Open CMD with admin privileges and type:
 * `del C:\Windows\System32\check-ip.exe`
 
