@@ -1,10 +1,10 @@
 # About
-Simple program to check if **IP adresses** are active or not using **ping** command.
+Simple program to check if **IP addresses** are active or not using **ping** command.
 NOTE One Thing: I'm not a C programmer. This code is simple, could be done better, but it works.
 
 ## How it works
 
-It simply **pings** a website (of your chouce) and depending the status code returned by the **ping** command, it's the status of the website/ip address.
+It simply **pings** a website (of your choice) and depending the status code returned by the **ping** command, it's the status of the website/ip address.
 
 Possible statuses are:
 - 0 => Alive
@@ -60,7 +60,7 @@ You can download this repo and build [check-ip.c](https://github.com/1RaY-1/chec
 
 ## How to use (from CMD/Terminal)
 ```
-Usage: check-ip [OPTION] IP_ADRESSES_TO_CHECK
+Usage: check-ip [OPTION] IP_ADDRESSES_TO_CHECK
 
 Options:
 -s            Save data to data.txt
