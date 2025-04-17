@@ -9,7 +9,7 @@
 #define OR ||
 #define AND &&
 
-#define USAGE printf("Usage: %s [OPTION] IP_ADRESSES_TO_CHECK\n", argv[0]); \
+#define USAGE printf("Usage: %s [OPTION] IP_ADDRESSES_TO_CHECK\n", argv[0]); \
     printf("Options:\n-s   Save data to data.txt\n-h, --help   Get this help message\n"); \
     printf("\nExample: %s -s 8.8.8.8 github.com\n", argv[0]);
 
