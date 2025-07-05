@@ -22,7 +22,7 @@ if ( [System.Environment]::Is64BitOperatingSystem ){
     Invoke-WebRequest -URI "https://github.com/1RaY-1/check-ip/releases/latest/download/check-ip-64bit.exe" -OutFile "$PWD\$program"
 }
 
-else if ( [System.Environment]::Is32BitOperatingSystem ){
+elseif ( [System.Environment]::Is32BitOperatingSystem ){
     write "Downloading executable for: 32-bit OS"
     sleep 0.8
     Invoke-WebRequest -URI "https://github.com/1RaY-1/check-ip/releases/latest/download/check-ip-32bit.exe" -OutFile "$PWD\$program"
