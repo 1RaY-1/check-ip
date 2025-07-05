@@ -4,28 +4,20 @@
 set -e
 
 if ! [ `command -v wget` ]; then
-    echo "Need 'wget' package to download files from github!"
+    echo "Need 'wget' package installed to download files from github!"
     exit 1
 fi
 
-echo -ne "Check-Ip installer for Linux/Termux\n"
-sleep 2s
+echo -ne "Check-Ip installer for Linux\n\n"
+sleep 1.5s
 
 case $(uname -m) in
     x86_64) ARCH="amd64" 
-    echo "Downloading executable for: ${ARCH}"; sleep 1s
+    echo "Downloading ${ARCH} executable..."; sleep 1s
     wget -O check-ip https://github.com/1ray-1/check-ip/releases/latest/download/check-ip-${ARCH}
     ;;
-    i386 | i686) ARCH="i386" 
-    echo "Downloading executable for: ${ARCH}"; sleep 1s
-    wget -O check-ip https://github.com/1ray-1/check-ip/releases/latest/download/check-ip-${ARCH}
-    ;;
-    arm64) ARCH="arm64" 
-    echo "Downloading executable for: ${ARCH}"; sleep 1s
-    wget -O check-ip https://github.com/1ray-1/check-ip/releases/latest/download/check-ip-${ARCH}
-    ;;
-    aarch64) ARCH="aarch64"
-    echo "Downloading executable for: ${ARCH}"; sleep 1s
+    i386 | i686) ARCH="32-bit" 
+    echo "Downloading ${ARCH} executable..."; sleep 1s
     wget -O check-ip https://github.com/1ray-1/check-ip/releases/latest/download/check-ip-${ARCH}
     ;;
     *)
@@ -47,19 +39,7 @@ esac
 
 chmod +x check-ip
 
-# for android
-if [ -d /data/data/com.termux/files/usr/bin/ ]; then
-    echo "Installing check-ip in /data/data/com.termux/files/usr/bin/";sleep 1s
-    # in case
-    if [ -f /data/data/com.termux/files/usr/bin/check-ip ]; then
-        echo "Hey '/data/data/com.termux/files/usr/bin/check-ip' already exists, will replace it. Press ENTER to continue"
-        read tmp
-        rm /data/data/com.termux/files/usr/bin/check-ip
-    fi
-    mv check-ip /data/data/com.termux/files/usr/bin/
-
-# for linux
-elif [ -d /usr/bin/ ]; then
+if [ -d /usr/bin/ ]; then
     echo "Installing check-ip in /usr/bin/";sleep 1s
     if [ -f /usr/bin/check-ip ]; then
         echo "Hey '/usr/bin/check-ip' already exists, will replace it. Press ENTER to continue"
@@ -81,7 +61,7 @@ else echo "Sorry, I don't know what to do."; exit 1
 fi
 
 if ! [ `command -v check-ip` ]; then
-    echo "Sorry, looks like 'check-ip' isn't installed!"
+    echo "Sorry, looks like 'check-ip' wasn't installed successfully"
     exit 1
 fi
 
