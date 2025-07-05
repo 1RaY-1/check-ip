@@ -31,7 +31,7 @@ void check(char *argv[], int SAVE_DATA, int a, int argc){
         remove(".temp__null__file");
 #else
 #include <sys/wait.h>
-        char command[100] = "ping -c 1 ";
+        char command[100] = "ping -c 3 ";
         strcat(command, argv[i]);
         strcat(command, " >/dev/null 2>&1");
         int response = WEXITSTATUS(system(command));
