@@ -28,9 +28,9 @@ elseif ( [System.Environment]::Is32BitOperatingSystem ){
     Invoke-WebRequest -URI "https://github.com/1RaY-1/check-ip/releases/latest/download/check-ip-32bit.exe" -OutFile "$PWD\$program"
 }
 else {
-    write "Sorry, your system architecture is not supported"
-    write "The only supported system architectures are: 64-bit and 32-bit"
-    exit 1
+    write "Sorry, there are no executables for your system architecture"
+    write "You need to compile the program yourself"
+    exit
 }
 
 # Move it to C:\Windows\System32
