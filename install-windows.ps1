@@ -1,11 +1,12 @@
 #Requires -RunAsAdministrator
 $ErrorActionPreference = "Stop" # <-- in case of an error, stop the script
 <#
-Check Ip installer for Windows.
-For more info about this program, see: https://github.com/1RaY-1/check-ip
+Check-Ip Windows Installer
 
-If receiving error "execution of scripts is disabled on this system", open powershell as admin and type next command:
-Set-ExecutionPolicy RemoteSigned
+If you see the error:
+  “execution of scripts is disabled on this system”
+
+It means that you have to set "ExecutionPolicy" to "RemoteSigned"
 
 After that I recommend to always leave it as 'Restricted' for better security:
 Set-ExecutionPolicy Restricted
@@ -15,7 +16,7 @@ $program = "check-ip.exe"
 $needed_dir = "C:\Windows\System32\"
 $needed =$needed_dir+$program
 
-# Check if system is system is 64-bit or 32-bit
+# Check if system is 64-bit or 32-bit
 if ( [System.Environment]::Is64BitOperatingSystem ){
     write "Downloading executable for: 64-bit OS"
     sleep 0.8
