@@ -42,6 +42,8 @@ if ( Test-Path -Path $needed -PathType Leaf) {
     Remove-Item $needed
 }
 
+write-host "Moving $program to $needed_dir"
+sleep 1
 Move-Item -Path $PWD\$program -Destination $needed_dir
 
 write-host "Done!"
